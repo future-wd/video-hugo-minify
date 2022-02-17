@@ -22,6 +22,14 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+# remove extra white space in HTML
+minify:
+  tdewolff:
+    html:
+      keepWhitespace: false
+
+
+
 
 # menu links via config file
 menu:
