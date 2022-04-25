@@ -1,0 +1,3 @@
+what if image resizing is used?
+generate images at smaller size on a new page? does that store the images on the original pages?
+generate image in json file and store permalink ( for live reload search)

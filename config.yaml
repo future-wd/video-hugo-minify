@@ -1,8 +1,4 @@
 baseURL: http://localhost/
-# Disable taxonomy pages (disables categories and tags folders)
-disableKinds:
-- taxonomy
-- taxonomyTerm
 # for xml output
 languageCode: "en-au"
 # for website
@@ -16,21 +12,16 @@ copyright: Web Design Inc.
 # controls number of pages displayed on list pages
 paginate: 5
 # controls the summary length on list pages
-summaryLength: 7
+summaryLength: 15
 # this is required so that Hugo will render markdown to HTML
 markup:
   goldmark:
     renderer:
       unsafe: true
-# remove extra white space in HTML
-minify:
-  tdewolff:
-    html:
-      keepWhitespace: false
-
-
-
-
+# taxonomies
+taxonomies:
+  company: companies
+  species: species
 # menu links via config file
 menu:
   main:

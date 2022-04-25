@@ -7,10 +7,22 @@
         <div class="py-3">{{ .Content | markdownify }}</div>
         {{ range .Paginator.Pages }}
         <article>
-          <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-          <div class="pb-3">
-            {{ .Summary }}
+          <div class="row">
+            {{ if .Params.images }}
+            {{ with $img := .Resources.GetMatch (index .Params.images 0) }}
+            <div class="col-md-2">
+            <img src="{{ $img.Permalink }}" alt="{{ printf "%s image" .Title }}" style="max-height:10rem;width:auto;">
+            </div>
+            {{ end }}
+            {{ end }}
+            <div class="col-md-10">
+              <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+              <div class="pb-3">
+                {{ .Summary }}
+              </div>
+            </div>
           </div>
+          
         </article>
         {{ end }}
         <div class="m-3 d-flex justify-content-center">

@@ -1,0 +1,7 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- $pages := where .Site.Pages "Type" "characters" }}
+{{- $pages = where $pages "Params.private" "!=" true -}}
+{{- range $pages -}}
+{{- $.Scratch.Add "index" (dict "title" .Title "companies" .Params.companies "species" .Params.species "content" .Plain "summary" .Summary "permalink" .Permalink "images" .Params.images) -}}
+{{- end -}}
+{{ $.Scratch.Get "index" | jsonify }}

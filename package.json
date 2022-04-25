@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/future-wd/video-hugo-minify#readme",
   "dependencies": {
-    "fuse.js": "^6.5.3"
+    "fuse.js": "^6.5.3",
+    "mark.js": "^8.11.1"
   }
 }

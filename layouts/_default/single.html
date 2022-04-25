@@ -2,9 +2,23 @@
 <section class="main">
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col clearfix">
         {{ partial "title" . }}
-        <div class="py-3">{{ .Content | markdownify }}</div>
+        {{ if .Params.images }}
+        {{ with $img := .Resources.GetMatch (index .Params.images 0) }}
+        <div class="col-md-4 float-end">
+        <img src="{{ $img.Permalink }}" alt="{{ printf "%s image" .Title }}" class="img-fluid">
+        
+        </div>
+        {{ end }}
+        {{ end }}
+        {{ with .Params.companies }}
+        <div class="pb-2"><strong>{{ if gt (len .) 1 }}Companies: {{ else }}Company: {{ end }}</strong>{{ delimit . ", " }}</div>
+        {{ end }}
+        {{ with .Params.species }}
+        <div class="pb-2"><strong>Species:</strong> {{ delimit . ", " }}</div>
+        {{ end }}
+        <div class="pb-3"><strong>Bio:</strong> {{ .Content | markdownify }}</div>
       </div>
     </div>
   </div>
